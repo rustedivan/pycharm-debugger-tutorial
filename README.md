@@ -11,7 +11,7 @@ Tryck igång debuggern med knappen i övre högra hörnet, alternativt Ctrl/Cmd-
 ![Debuggerknappen](/images/2-dbg-button.png)
 
 Programmet drar igång som vanligt. (Om inte frågan syns, växla till Console-tabben i nederkanten på förstret, ibland händer det inte automagiskt som det ska). Mata in 5 eller nåt, tryck enter, och titta på när skiten kraschar.
-![5 som String](/images/3-int-is-str)
+![5 som String](/images/3-int-is-str.png)
 
 ### Bugg 1: Programmet kraschar
 
