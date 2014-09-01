@@ -71,3 +71,11 @@ Ajuste... tänkte inte på det. Till slut kommer ju **n** bli noll, och **result
 ![Fixad loop](/images/10-loop-exit.png)
 
 Enkel fix: villkoret i loopen är fett med fel, så stoppa programmet, ändra det till *n > 0* bara, och försök igen. Behåll breakpointen och steppa igenom loopen, och kolla att programpekaren (raden som körs nu) hoppar ur loopen så fort *n == 0*. Ding dong, bugg \#3 är död.
+
+![Kör klart](/images/11-continue-and-read.png)
+
+Ta bort breakpointen, klicka på Continue/Resume-knappen, och växla över till Console-tabben för att kolla resultatet. *Menneh...*
+
+### Bugg 4: 5! är fan inte 600...
+
+Jahapp, nu har vi ett program som inte kraschar, som kör klart, som inte resulterar i noll, men... resultatet är jättefel.
