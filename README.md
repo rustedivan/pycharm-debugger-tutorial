@@ -79,3 +79,33 @@ Ta bort breakpointen, klicka på Continue/Resume-knappen, och växla över till 
 ### Bugg 4: 5! är fan inte 600...
 
 Jahapp, nu har vi ett program som inte kraschar, som kör klart, som inte resulterar i noll, men... resultatet är jättefel.
+
+![5! = 600](/images/12-fib-is-600.png)
+
+Sätt en breakpoint i loopen (eller innan den, eller efter - det finns ledtrådar på alla tre ställen) och försök lista ut vad som blir snett. Serien ska ju vara:
+- 5 = 5
+- 5 * 4 = 20
+- 5 * 4 * 3 = 60
+- 5 * 4 * 3 * 2 + 120
+- 5 * 4 * 3 * 2 * 1 = 120
+
+...men redan i första varvet blir det 5 * 5 = 25. Ah, *någon* har satt **result** = **n** redan från början. Stolpskott. <small> **jaja det var ett uppriktigt misstag det kan hända den bäste mummel mummel** </small>
+
+![En faktor 5](/images/13-factor-five-too-high.png)
+
+*Fix 4: börja multiplicera med 1*
+
+Sätt **result** = 1 från början (inte **result** = 0, för då kommer vi ingenvart, right?). Stoppa, ändra, debugga, kolla resultatet. 5! = 120, tjoflöjt!
+
+![Rätt och riktigt](/images/14-fixed-and-correct.png)
+
+### One more thing...
+Debuggern är världens bästa grej. Kolla upp Watchers (lägg till komplicerade uttryck i variables-fönstret för att få hela uträkningar direkt), Conditional breakpoints (högerklicka på en breakpoint och lägg till villkor för när debuggern ska breaka - sjukt bra om man vet vad som blir fel men inte varför) och Python prompt (kör kodsnuttar "för hand" medan programmet är igång).
+
+En sista grej som är bra att veta - det går att ändra variabler medan programmet är igång, vilket är extremt användbart om man vill testa olika scenarion utan att behöva ändra i programmet, starta om, köra fram till rätt punkt och så vidare. Breaka nånstans, högerklicka på en variabel och välj Set Value.
+
+Det är som i Matrix.
+
+![Set value](/images/15-set-value.png)
+
+
