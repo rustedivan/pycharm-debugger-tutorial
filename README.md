@@ -48,7 +48,7 @@ Ovanför variabel-förstret finns de finaste knapparna i hela universum: Step Ov
 - Step Out: gå ut ur funktionen (kör till slutet på funktionen och går ner ett steg i callstacken)
 - Run to Cursor: klicka nånstans, tryck till, så kör programmet tills det kommer till den raden. Bäst.
 
-Well, result har blivit larvigt stort eftersom loopen aldrig bryter. Den har stått och multiplicerat tal ganska länge innan vi drog i bromsen. Varför fastnar den? Jo, villkoret är att loopen kör så länge **n >= 0**, men **n** räknar inte ner. Jag har glömt att dra av *1* från *n* i loopen. Sigh.
+Well, result har blivit larvigt stort eftersom loopen aldrig bryter. Den har stått och multiplicerat tal ganska länge innan vi drog i bromsen. Varför fastnar den? Jo, villkoret är att loopen kör så länge **n >= 0**, men **n** räknar inte ner. Jag har glömt att dra av *1* från **n** i loopen. Sigh.
 
 *Fix 2: räkna ner n*
 
