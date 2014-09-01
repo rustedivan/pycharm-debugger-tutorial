@@ -25,4 +25,27 @@ Ah, förstås. **raw_input** tar inmatningen som en sträng, det vill säga "5",
 
 *Fix 1: konvertera till integer*
 
-Konvertera resultatet från **raw_input** till integer: *n = int(raw_input("Enter value:"))*
+Stoppa programmet. Konvertera resultatet från **raw_input** till integer: *n = int(raw_input("Enter value:"))*
+
+###Bugg 2: MEN DÄ' HÄNDER INGE' (mvh Fucking Åmål)
+Dra igång debuggern igen, mata in ett tal, tryck Enter, och notera att inget händer. Programmet har inte kraschat och inte kört klart, så det är väl fortfarande igång, då? Pausa programmet och växla över till Debugger-tabben:
+
+![Inget händer](/images/4-nothing-happens.png)
+
+Det kan ta ett tag innan debuggern kommer igång, pga att vi har torterat datorn ganska rejält, och det är en hel del arbete för debuggern att ens hämta sig från den här missen. Efter ett litet tag borde följande dyka upp:
+
+![Öööh...](/images/5-thats-not-right.png)
+
+Vi kan dra slutsatsen att 5! troligen ska vara mindre än det där resultatet, eller hur? Så hur hamnade vi här? Mja, det enklaste är väl att stega fram koden rad för rad och se hur den beter sig egentligen. Ovanför variabel-förstret finns de finaste knapparna i hela universum: Step Over, Step Into, Step Out och Run to Cursor. Tryck några gånger på Stop Over (vilket helt enkelt innebär: gå till nästa rad) och kolla hur programmet beter sig egentligen. Några gissningar om vad som pågår?
+
+*Förresten:*
+- Step Over: gå till nästa rad
+- Step Into: gå in i funktionsanrop (om du står vid ett anrop)
+- Step Out: gå ut ur funktionen (kör till slutet på funktionen och går ner ett steg i callstacken)
+- Run to Cursor: klicka nånstans, tryck till, så kör programmet tills det kommer till den raden. Bäst.
+
+Well, result har blivit larvigt stort eftersom loopen aldrig bryter. Den har stått och multiplicerat tal ganska länge innan vi drog i bromsen. Varför fastnar den? Jo, villkoret är att loopen kör så länge **n >= 0**, men **n** räknar inte ner. Jag har glömt att dra av *1* från *n* i loopen. Sigh.
+
+*Fix 2: räkna ner n*
+
+Stoppa programmet, och lägg in *n -= 1* sist i loopen. Kör igen, och konstatera att programmet kör klart, men...
